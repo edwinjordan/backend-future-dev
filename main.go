@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"go-heroku/configs"
 	"go-heroku/database"
@@ -11,9 +12,19 @@ import (
 
 func main() {
 	//database configs
-	dbUser, dbPassword, dbName, dbHost := "sql6433460", "6ZueX9pJFG", "sql6433460", "localhost:3306"
+	// errEnv := godotenv.Load()
 
-	db, err := database.ConnectToDB(dbUser, dbPassword, dbName, dbHost)
+	// if errEnv != nil {
+	// 	panic("Failed to load env file")
+	// }
+
+	dbUser := os.Getenv("DB_USER")
+	dbPass := os.Getenv("DB_PASSWORD")
+	dbHost := os.Getenv("DB_HOST")
+	dbName := os.Getenv("DB_NAME")
+	dbPort := os.Getenv("DB_PORT")
+
+	db, err := database.ConnectToDB(dbUser, dbPass, dbHost, dbName, dbPort)
 
 	if err != nil {
 		log.Fatalln(err)
