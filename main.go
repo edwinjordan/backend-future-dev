@@ -47,6 +47,6 @@ func main() {
 
 	route := configs.SetupRoutes(wilayahRepository)
 
-	route.Run(":8000")
+	route.Run()
 
 }
