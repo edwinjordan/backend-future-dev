@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"os"
 
 	"go-heroku/configs"
 	"go-heroku/database"
@@ -18,11 +17,11 @@ func main() {
 	// 	panic("Failed to load env file")
 	// }
 
-	dbUser := os.Getenv("DB_USER")
-	dbPass := os.Getenv("DB_PASSWORD")
-	dbHost := os.Getenv("DB_HOST")
-	dbName := os.Getenv("DB_NAME")
-	dbPort := os.Getenv("DB_PORT")
+	dbUser := "sql6433460"
+	dbPass := "6ZueX9pJFG"
+	dbHost := "localhost"
+	dbName := "sql6433460"
+	dbPort := "3306"
 
 	db, err := database.ConnectToDB(dbUser, dbPass, dbHost, dbName, dbPort)
 
